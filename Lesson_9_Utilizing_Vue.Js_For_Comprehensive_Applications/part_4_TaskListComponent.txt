@@ -1,0 +1,31 @@
+<template>
+  <div>
+    <h2>Your Tasks</h2>
+    <ul>
+      <li v-for="(task, index) in tasks" :key="index">
+        {{ task }}
+        <button @click="removeTask(index)">Delete</button>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  props: {
+    tasks: {
+      type: Array,
+      required: true
+    }
+  },
+  setup(props, { emit }) {
+    const removeTask = (index: number) => {
+      emit('delete-task', index);
+    };
+
+    return { removeTask };
+  },
+});
+</script>
