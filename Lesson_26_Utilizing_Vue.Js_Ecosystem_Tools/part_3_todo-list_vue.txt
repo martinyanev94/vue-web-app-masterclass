@@ -1,0 +1,38 @@
+<template>
+  <div>
+    <h1>My To-Do List</h1>
+    <input v-model="newTask" @keyup.enter="addTask" placeholder="Add a new task"/>
+    <ul>
+      <li v-for="task in tasks" :key="task.id">{{ task.text }}</li>
+    </ul>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      newTask: '',
+      tasks: [],
+      nextId: 1,
+    };
+  },
+  methods: {
+    addTask() {
+      if (this.newTask.trim()) {
+        this.tasks.push({ id: this.nextId++, text: this.newTask });
+        this.newTask = '';
+      }
+    },
+  },
+};
+</script>
+
+<style>
+h1 {
+  color: brown;
+}
+input {
+  margin-bottom: 10px;
+}
+</style>
