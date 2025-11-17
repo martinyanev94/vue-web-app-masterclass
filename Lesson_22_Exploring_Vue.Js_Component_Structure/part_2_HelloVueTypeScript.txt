@@ -1,0 +1,29 @@
+<template>
+  <div class="hello">
+    <h1>{{ message }}</h1>
+    <button @click="changeMessage">Change Message</button>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const message = ref('Hello Vue 3 with TypeScript!');
+
+    const changeMessage = () => {
+      message.value = 'You have clicked the button!';
+    };
+
+    return { message, changeMessage };
+  },
+});
+</script>
+
+<style scoped>
+.hello {
+  text-align: center;
+  margin-top: 50px;
+}
+</style>
