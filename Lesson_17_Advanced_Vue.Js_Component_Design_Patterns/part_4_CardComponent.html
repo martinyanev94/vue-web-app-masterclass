@@ -1,0 +1,58 @@
+<template>
+  <div class="card">
+    <header class="card-header">
+      <slot name="header"></slot>
+    </header>
+    <div class="card-body">
+      <slot></slot>
+    </div>
+    <footer class="card-footer">
+      <slot name="footer"></slot>
+    </footer>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({});
+</script>
+
+<style scoped>
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+}
+.card-header,
+.card-footer {
+  font-weight: bold;
+}
+</style>
+<template>
+  <Card>
+    <template #header>
+      <h1>Card Title</h1>
+    </template>
+    <p>This is the card body content where informative stuff goes.</p>
+    <template #footer>
+      <button @click="onFooterButtonClick">Action</button>
+    </template>
+  </Card>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import Card from './Card.vue';
+
+export default defineComponent({
+  components: {
+    Card
+  },
+  methods: {
+    onFooterButtonClick() {
+      console.log('Footer button clicked!');
+    }
+  }
+});
+</script>
