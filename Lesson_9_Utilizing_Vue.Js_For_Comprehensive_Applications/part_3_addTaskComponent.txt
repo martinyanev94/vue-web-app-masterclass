@@ -1,0 +1,26 @@
+<template>
+  <div>
+    <h2>Add a New Task</h2>
+    <input v-model="task" placeholder="Enter task here" @keyup.enter="submitTask"/>
+    <button @click="submitTask">Add Task</button>
+  </div>
+</template>
+
+<script lang="ts">
+import { ref } from 'vue';
+
+export default {
+  setup(props, { emit }) {
+    const task = ref('');
+
+    const submitTask = () => {
+      if (task.value) {
+        emit('add-task', task.value);
+        task.value = '';  // Clear input after submission
+      }
+    };
+
+    return { task, submitTask };
+  },
+};
+</script>
