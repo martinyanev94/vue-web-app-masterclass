@@ -1,0 +1,21 @@
+<template>
+  <component :is="currentRoleComponent"></component>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import AdminProfile from './AdminProfile.vue';
+import GuestProfile from './GuestProfile.vue';
+
+export default defineComponent({
+  components: {
+    AdminProfile,
+    GuestProfile,
+  },
+  computed: {
+    currentRoleComponent() {
+      return this.userRole === 'admin' ? AdminProfile : GuestProfile;
+    },
+  },
+});
+</script>
