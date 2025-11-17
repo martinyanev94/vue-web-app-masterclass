@@ -1,0 +1,31 @@
+<template>
+  <div>
+    <UserProfile :user="currentUser" />
+    <UserProfile :user="anotherUser" />
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import UserProfile from './UserProfile.vue';
+
+export default defineComponent({
+  components: {
+    UserProfile,
+  },
+  data() {
+    return {
+      currentUser: {
+        avatar: 'https://example.com/avatar1.png',
+        name: 'Jane Doe',
+        email: 'jane@example.com',
+      },
+      anotherUser: {
+        avatar: 'https://example.com/avatar2.png',
+        name: 'John Smith',
+        email: 'john@example.com',
+      },
+    };
+  },
+});
+</script>
