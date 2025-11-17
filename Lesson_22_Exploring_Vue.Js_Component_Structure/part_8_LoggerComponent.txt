@@ -1,0 +1,31 @@
+<template>
+  <div class="logger">
+    <h2>Logger Component</h2>
+    <p>Check the console for lifecycle hooks.</p>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  beforeCreate() {
+    console.log('Component is about to be created!');
+  },
+  created() {
+    console.log('Component has been created!');
+  },
+  mounted() {
+    console.log('Component has been mounted to the DOM!');
+  },
+  beforeDestroy() {
+    console.log('Component is about to be destroyed!');
+  },
+});
+</script>
+
+<style scoped>
+.logger {
+  color: blue;
+}
+</style>
