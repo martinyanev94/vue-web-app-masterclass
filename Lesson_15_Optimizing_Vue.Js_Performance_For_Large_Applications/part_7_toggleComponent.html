@@ -1,0 +1,21 @@
+<template>
+  <div>
+    <button @click="toggle">Toggle Component</button>
+    <component-a v-if="showComponentA"></component-a>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      showComponentA: false,
+    };
+  },
+  methods: {
+    toggle() {
+      this.showComponentA = !this.showComponentA;
+    },
+  },
+};
+</script>
