@@ -1,0 +1,26 @@
+<template>
+  <div>
+    <h1>{{ user.name }}</h1>
+    <p>{{ user.age }} years old</p>
+    <button @click="increaseAge">Happy Birthday!</button>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const user = ref({
+      name: 'Alice',
+      age: 25,
+    });
+
+    const increaseAge = () => {
+      user.value.age += 1;
+    };
+
+    return { user, increaseAge };
+  },
+});
+</script>
