@@ -1,0 +1,11 @@
+<template>
+  <div>
+    <div v-if="error">
+      <p>Error loading data: {{ error.message }}</p>
+    </div>
+    <div v-else-if="data">
+      <p>Data loaded successfully!</p>
+      <!-- Render data here -->
+    </div>
+  </div>
+</template>
