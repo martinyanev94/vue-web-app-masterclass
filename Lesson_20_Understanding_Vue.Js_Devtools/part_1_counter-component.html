@@ -1,0 +1,28 @@
+<template>
+  <div>
+    <h1>{{ title }}</h1>
+    <button @click="increment">Increment</button>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  name: 'Counter',
+  setup() {
+    const title = ref('Counter Example');
+    const count = ref(0);
+    
+    function increment() {
+      count.value++;
+    }
+
+    return {
+      title,
+      count,
+      increment
+    };
+  }
+});
+</script>
