@@ -1,0 +1,36 @@
+<template>
+  <div class="user-profile">
+    <img :src="user.avatar" alt="User Avatar" class="avatar"/>
+    <h2>{{ user.name }}</h2>
+    <p>{{ user.email }}</p>
+    <slot></slot> <!-- Slot for custom content -->
+  </div>
+</template>
+<template>
+  <UserProfile :user="currentUser">
+    <template v-slot:default>
+      <button @click="sendMessage(currentUser)">Send Message</button>
+    </template>
+  </UserProfile>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import UserProfile from './UserProfile.vue';
+
+export default defineComponent({
+  components: {
+    UserProfile,
+  },
+  data() {
+    return {
+      currentUser: { /* User data */ },
+    };
+  },
+  methods: {
+    sendMessage(user) {
+      // Logic to send a message to the user
+    },
+  },
+});
+</script>
