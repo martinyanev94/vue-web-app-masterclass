@@ -1,0 +1,26 @@
+<template>
+  <div class="greeting">
+    <h1>{{ message }}</h1>
+    <input v-model="message" />
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const message = ref('Hello, Vue 3 with Composition API!');
+    
+    return {
+      message
+    };
+  }
+});
+</script>
+
+<style scoped>
+.greeting {
+  color: green;
+}
+</style>
