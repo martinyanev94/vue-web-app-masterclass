@@ -1,0 +1,25 @@
+<template>
+  <div>
+    <h1>Counter: {{ count }}</h1>
+    <button @click="increment">Increment</button>
+  </div>
+</template>
+
+<script lang="ts">
+import { ref } from 'vue';
+
+export default {
+  setup() {
+    const count = ref<number>(0);
+
+    const increment = (): void => {
+      count.value++;
+    };
+
+    return {
+      count,
+      increment,
+    };
+  },
+};
+</script>
