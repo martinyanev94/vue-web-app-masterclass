@@ -1,0 +1,29 @@
+<template>
+  <div>
+    <h1>Data from API: {{ data }}</h1>
+    <div v-if="error">{{ error }}</div>
+  </div>
+</template>
+
+<script>
+import { ref, onMounted } from 'vue';
+
+export default {
+  setup() {
+    const data = ref(null);
+    const error = ref(null);
+
+    onMounted(async () => {
+      try {
+        const response = await fetch('https://api.example.com/data');
+        if (!response.ok) throw new Error('Network response was not ok');
+        data.value = await response.json();
+      } catch (err) {
+        error.value = err.message;
+      }
+    });
+
+    return { data, error };
+  },
+};
+</script>
