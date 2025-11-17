@@ -1,0 +1,25 @@
+<template>
+  <div>
+    <h1>User: {{ user.name }}, Age: {{ user.age }}</h1>
+    <button @click="increaseAge">Increase Age</button>
+  </div>
+</template>
+
+<script>
+import { reactive } from 'vue';
+
+export default {
+  setup() {
+    const user = reactive({
+      name: 'John Doe',
+      age: 25,
+    });
+
+    const increaseAge = () => {
+      user.age++;
+    };
+
+    return { user, increaseAge };
+  },
+};
+</script>
