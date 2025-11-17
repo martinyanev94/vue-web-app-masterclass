@@ -1,0 +1,15 @@
+<template>
+  <div>
+    <h1>{{ title }}</h1>
+  </div>
+</template>
+
+<script>
+export default {
+  async asyncData({ params }) {
+    const res = await fetch(`https://api.example.com/resource/${params.id}`);
+    const data = await res.json();
+    return { title: data.title };
+  },
+};
+</script>
