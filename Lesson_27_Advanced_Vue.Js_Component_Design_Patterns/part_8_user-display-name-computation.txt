@@ -1,0 +1,19 @@
+<script lang="ts">
+import { defineComponent, computed } from 'vue';
+
+export default defineComponent({
+  props: {
+    user: {
+      type: Object,
+      required: true,
+    },
+  },
+  setup(props) {
+    const displayName = computed(() => {
+      return `${props.user.firstName} ${props.user.lastName}`;
+    });
+
+    return { displayName };
+  },
+});
+</script>
