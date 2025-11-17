@@ -1,0 +1,24 @@
+<template>
+  <div>
+    <h2>User Data</h2>
+    <pre>{{ userData }}</pre>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      userData: null,
+    };
+  },
+  async mounted() {
+    try {
+      const response = await fetch("https://api.example.com/user");
+      this.userData = await response.json();
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  },
+};
+</script>
